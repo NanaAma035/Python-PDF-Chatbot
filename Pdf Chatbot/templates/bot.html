@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPT Assist</title>
+    <link rel="stylesheet" href="static/bot.css">
+</head>
+<body>
+    <div class="sidenav" id="mySidenav">            
+        <!-- File upload form -->
+        <button class="reset button" onclick="resetChat()">Reset Chat</button>
+    
+        <h1>Upload new File</h1>
+        <form id="upload-form"  action="/upload" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" class="file-input">
+            <input type="submit" value="Upload" class="upload-button">
+     
+    </div>
+    </div>
+   </form>
+    <div id="chat-container">            
+        <div class="chatbox__header">
+            <span style="font-size:30px;cursor:pointer" onclick="toggleNav()">&#9776;</span>
+            <div class="chatbox__image--header">
+                <img src="static/logo.png" alt="Logo">
+            </div>
+        </div>
+ 
+        <div id="chat-box">
+            <!-- Messages will be appended here via JavaScript -->
+        </div>
+ 
+        <div class="chatbox__footer">
+            <input type="text" id="user-input" placeholder="Write a message...">
+            <button class="chatbox__send--footer send__button" onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script src="static/bot.js"></script>
+</body>
+</html>
