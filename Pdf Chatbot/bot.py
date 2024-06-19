@@ -5,9 +5,10 @@ from flask import Flask, flash, render_template, request, jsonify, redirect, ses
 from werkzeug.utils import secure_filename  # Importing the secure_filename function from werkzeug.utils for secure filename generation
 from PyPDF2 import PdfReader  # Importing PdfReader class from PyPDF2 for reading PDF files
 import openai  # Importing the openai module for using the OpenAI API
+from dotenv import load_dotenv  # Importing load_dotenv to load environment variables
 
 # Setting up constants
-UPLOAD_FOLDER = 'uploads'  # Folder where uploaded files will be stored
+UPLOAD_FOLDER = 'Pdf Chatbot/uploads' # Folder where uploaded files will be stored
 ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}  # Allowed file extensions
 
 # Creating a Flask application
@@ -16,7 +17,7 @@ app.secret_key = secrets.token_hex(16)  # Generating a secret key for session ma
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 # Setting up OpenAI API key
-openai.api_key = "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"
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 # List to store chat messages
 messages = [{"role": "system", "content": " "}]  # Initial system message
